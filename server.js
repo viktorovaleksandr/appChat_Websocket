@@ -10,7 +10,6 @@ const wss = new WebSocket.Server({ server });
 
 wss.on('connection', function connection(ws) {
    ws.on('message', function incoming(json) {
-      console.log(json)
       const event = JSON.parse(json);
       switch (event.type) {
          case 'SEND_MESSAGE': {
