@@ -6,19 +6,28 @@ import {FormModel} from '../model/FormModel.js';
 export class FormController {
    constructor() {
       this.formView = new FormView({
-         sendServerMessage: (newMessage) => this.sendServerMessage(newMessage)
+         sendServerMessage: (formData) => this.sendServerMessage(formData)
       });
       this.formModel = new FormModel({
-         showServerMessage: (messageData) => this.showServerMessage(messageData)
+         incomingServerMessage: (message) => this.incomingServerMessage(message)
       });
    }
    
-   sendServerMessage(newMessage) {
-      this.formModel.outgoingServerMessage(newMessage);
-      // console.log('SEND_MESSAGE', newMessage);
+   sendServerMessage(formData) {
+
+         const sendMessageEvent = {
+            type: 'SEND_MESSAGE',
+            payload: {
+                message: formData.message,
+                author: formData.author
+         }
+      }
+
+      const json = JSON.stringify(sendMessageEvent);
+      this.formModel.socket.send(json);
    }
 
-   showServerMessage(messageData) {
-      this.formView.renderMessage(messageData);
+   incomingServerMessage(message) {
+      this.formView.renderMessage(message);
    }
 }
