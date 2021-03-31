@@ -18,9 +18,9 @@ export class FormView {
       </div>`).appendTo($('#app'));
    }
 
-   renderMessage(messageData) {
+   renderMessage(message) {
       return $(`
-      <h3>${messageData.payload.author}: <span class="badge badge-pill badge-light">${messageData.payload.message}</span></h3>
+      <h3>${message.payload.author}: <span class="badge badge-pill badge-light">${message.payload.message}</span></h3>
 		`).insertAfter('.js-input-group');
 	}
 

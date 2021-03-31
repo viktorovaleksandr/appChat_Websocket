@@ -4,16 +4,8 @@ export class FormModel {
      this.socket = new WebSocket('ws://localhost:7777');
 
       this.socket.onmessage = (event) => {
-         const message = JSON.parse(event.data);
-         this.config.incomingServerMessage(message);
-      }
-
-      this.socket.onerror = (event) => {
-        console.log('onerror', event);
-      }
-
-      this.socket.onclose = (event) => {
-        console.log('onclose', event);
+        const message = JSON.parse(event.data);
+        this.config.incomingServerMessage(message);
       }
    }
 }

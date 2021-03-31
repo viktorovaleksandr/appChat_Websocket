@@ -8,6 +8,3 @@ import '../css/style.css';
 $(() => {
 	const controller = new FormController();
 })
-
-
-//1) обезательно ли делать send при socket.onopen?

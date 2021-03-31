@@ -23,9 +23,9 @@ wss.on('connection', function connection(ws) {
    })
    ws.on('close', function close() {
       console.log('disconnected');
-   });
+   })
 });
 
 server.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+   console.log(`Example app listening at http://localhost:${port}`)
+});

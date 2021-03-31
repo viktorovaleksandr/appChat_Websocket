@@ -12,18 +12,17 @@ export class FormController {
          incomingServerMessage: (message) => this.incomingServerMessage(message)
       });
    }
-   
-   sendServerMessage(formData) {
 
-         const sendMessageEvent = {
+   sendServerMessage(formData) {
+         const outgoingMessage = {
             type: 'SEND_MESSAGE',
             payload: {
-                message: formData.message,
-                author: formData.author
+               message: formData.message,
+               author: formData.author
          }
       }
 
-      const json = JSON.stringify(sendMessageEvent);
+      const json = JSON.stringify(outgoingMessage);
       this.formModel.socket.send(json);
    }
 
