@@ -1,7 +1,7 @@
 export class FormModel {
    constructor(config) {
      this.config = config;
-     this.socket = new WebSocket('ws://localhost:7777');
+     this.socket = new WebSocket('ws://my-chat-websocked-lesson22.herokuapp.com');
 
       this.socket.onmessage = (event) => {
         const message = JSON.parse(event.data);
