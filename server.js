@@ -5,11 +5,6 @@ const WebSocket = require('ws');
 const app = express();
 const port = process.env.PORT || 7777;
 
-
-app.get('/', (req, res) => {
-   res.send('Heroku App');
-});
-
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
@@ -29,6 +24,10 @@ wss.on('connection', function connection(ws) {
    ws.on('close', function close() {
       console.log('disconnected');
    })
+});
+
+app.get('/', (req, res) => {
+   res.send();
 });
 
 server.listen(port, () => {
