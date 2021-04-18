@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "build": "webpack",
     "start-fe": "webpack serve --mode development"
   },
   "author": "Viktorov Sasha",
