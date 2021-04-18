@@ -1,3 +1,6 @@
+github pages: https://viktorovaleksandr.github.io/appChat_Websocket/
+
+
 ТЗ:
 
 Интерфейс состоит из списка сообщений и формы отправки сообщения.
